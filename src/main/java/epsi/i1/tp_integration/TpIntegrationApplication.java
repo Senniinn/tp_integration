@@ -19,6 +19,7 @@ public class TpIntegrationApplication {
         System.out.println("Covid entre 1 et 29 jours : "+app.covidChanceDurree(normalDistribution, 1, 29));
         System.out.println("Covid entre 0 et 36 jours : "+app.covidChanceDurree(normalDistribution, -6, 29));
         System.out.println("Covid 0 jours : "+app.covidChanceEnMoyenne(normalDistribution, 0));
+        System.out.println("Terminé");
 
     }
 
