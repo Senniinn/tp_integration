@@ -7,17 +7,10 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 @SpringBootApplication
 public class TpIntegrationApplication {
 
-    double covidChanceEnMoyenne(NormalDistribution n, int m) {
-        return n.cumulativeProbability(m);
-    }
-
-    double covidChanceDurree(NormalDistribution n , int a, int b) {
-        return n.probability(a, b);
-    }
 
     public static void main(String[] args) {
 
-        TpIntegrationApplication app = new TpIntegrationApplication();
+        COVIDLib app = new COVIDLib();
 
         NormalDistribution normalDistribution = new NormalDistribution(15, 7);
 
