@@ -20,15 +20,19 @@ pipeline {
             }
             post {
                 success {
-                    junit 'target/surefire-reports/**/*.xml'
+                    archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
                 }
             }
         }
 
         stage('Test') {
             steps {
-                sh 'make check || true'
-                junit '**/target/*.xml'
+                sh 'maven test'
+            }
+            post {
+                success {
+                    junit '**/target/*.xml'
+                }
             }
         }
     }
