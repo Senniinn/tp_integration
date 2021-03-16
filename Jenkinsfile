@@ -1,20 +1,23 @@
 pipeline {
-    agent any
-
+    agent none
     stages {
         stage('Build') {
+            agent any
             steps {
-		        sh 'mvn clean package'
+                checkout scm
+                sh 'make'
+                stash includes: '**/target/*.jar', name: 'app'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'make check || true'
+                junit '**/target/*.xml'
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+            post {
+                always {
+                    junit '**/target/*.xml'
+                }
             }
         }
     }
