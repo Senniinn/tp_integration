@@ -12,4 +12,8 @@ public class COVIDLib {
         return n.probability(a, b);
     }
 
+    public static int addition(int a, int b) {
+        return a + b;
+    }
+
 }
